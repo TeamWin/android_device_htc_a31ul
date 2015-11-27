@@ -3,6 +3,9 @@ on boot
     setprop sys.usb.state ${sys.usb.config}
     start choice_fn
 
+on property:ro.bootmode=offmode_charging
+    stop recovery
+
 service choice_fn /sbin/choice_fn
     oneshot
     seclabel u:r:recovery:s0
