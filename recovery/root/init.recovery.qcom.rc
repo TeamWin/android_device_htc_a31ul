@@ -3,6 +3,9 @@ on boot
     setprop sys.usb.state ${sys.usb.config}
     start choice_fn
 
+    insmod /system/lib/modules/dm-crypt.ko
+    insmod /system/lib/modules/ecryptfs.ko
+
 on property:ro.bootmode=offmode_charging
     stop recovery
 
